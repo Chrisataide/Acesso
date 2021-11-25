@@ -1,0 +1,388 @@
+{% extends 'master.html' %}
+
+{% load static %}
+
+<!DOCTYPE html>
+{% block content_master %}
+<style type="text/css">
+
+    @media screen and (min-width: 700px) and (max-width: 900px) {
+
+        div.confirm-msg .panel-default {
+            margin: 21% auto !important    
+        }
+
+        .panel-msg{
+            margin-top: 12em !important;
+            margin-left: 3.9em;
+        }
+
+        .content-alarm{
+            width: 60.6em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: -1.2em;
+        }
+
+        .content-box{
+            width: 60.6em !important;
+            padding-top: 0;
+            height: 423px;
+            align-items: center;
+            /*display: flex;*/
+            box-shadow: 0px 0px 28px 3px #124b73;
+            border: 2px solid #a3feff;
+            border-radius: 1em;
+            z-index: 100;
+            margin-left: 0.4em !important;
+            position: absolute;
+            margin-top: 0em;
+        }
+
+        .btn-alarm{
+            margin: 0em !important;
+            height: 17em !important;
+        }
+
+        .panel-default{
+            height: 10em;
+            margin-top: 6em !important;
+        }
+
+        .modal{
+            overflow: hidden !important;
+        }
+
+        #location_1{
+            height: 17.5em !important;
+            border-radius: 0.7em 0em 0em 0em;
+            width: 40em;
+        }
+
+        #location_2{
+            height: 17.5em !important;
+            border-radius: 0em 0.8em 0em 0em;
+            width: 40em;
+        }
+
+        #location_3{
+            height: 17.5em !important;
+            border-radius: 0em 0em 0em 1em;
+            width: 40em;
+        }
+
+        #location_4{
+            border-radius: 0em 0em 0.9em 0em;
+            height: 17.5em !important;
+            width: 40em;
+        }
+
+        .confirm-msg{
+            overflow: hidden !important;
+        }
+
+        .modal-title {
+            margin: 0;
+            line-height: 1.42857143;
+            font-size: 1.4em;
+            color: white;
+            font-weight: bold;
+        }
+
+        .modal-header .close {
+            margin-top: -2px !important;
+            position: relative !important;
+            font-size: 2.5em !important;
+            color: white !important;
+            opacity: 1 !important;
+        }
+
+        .size-hall{
+            font-size: 13px;
+        }
+
+        .arm{
+            font-size: 1em !important;
+        }
+
+        .btn{
+            color: white !important;
+        }
+
+        .modal-dialog{
+            color: white !important;
+            margin-top: 3em !important;
+            margin-left: 9em !important;
+        }
+
+        .btn-close{
+            margin-right: -1em !important;
+            margin-left: 1em !important;
+        }
+
+        .modal-footer{
+            padding: 0em;
+            padding-bottom: 0.5em;
+        }
+
+        span{
+            font-size: 1em !important;
+        }
+
+    }
+
+    @media screen and (min-width: 200px) and (max-width: 600px) {
+
+        div.confirm-msg .panel-default {
+            margin: 50% auto !important
+        }
+
+        .panel-msg{
+            margin-top: 12em !important;
+            margin-left: 1.4em;
+        }
+
+        .content-alarm{
+            width: 23.7em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: -1.2em;
+        }
+
+        .content-35{
+            margin-left: 0.4em !important;
+            width: 310px;
+        }
+
+        .btn-alarm{
+            margin: 0em !important;
+            height: 17em !important;
+        }
+
+        .panel-default{
+            height: 10em;
+            margin-top: 6em !important;
+        }
+        
+        .content-box {
+            width:  310px !important;
+            padding-top: 0;
+            height: 423px;
+            align-items: center;
+            /*display: flex;*/
+            box-shadow: 0px 0px 28px 3px #124b73;
+            border: 2px solid #a3feff;
+            border-radius: 1em;
+            z-index: 100;
+            position: absolute;
+            margin-top: 0em;
+        }
+
+
+        .modal{
+            overflow: hidden !important;
+        }
+
+        #location_1{
+            height: 17.5em !important;
+            border-radius: 0.7em 0em 0em 0em;
+            width: 12.7em;
+        }
+
+        #location_2{
+            height: 17.5em !important;
+            border-radius: 0em 0.8em 0em 0em;
+            width: 12.7em;
+        }
+
+        #location_3{
+            height: 17.5em !important;
+            border-radius: 0em 0em 0em 1em;
+            width: 12.7em;
+        }
+
+        #location_4{
+            border-radius: 0em 0em 0.9em 0em;
+            height: 17.5em !important;
+            width: 12.7em;
+        }
+
+        .confirm-msg{
+            overflow: hidden !important;
+        }
+
+        .modal-title {
+            margin: 0;
+            line-height: 1.42857143;
+            font-size: 1.4em;
+            color: white;
+            font-weight: bold;
+        }
+
+        .modal-header .close {
+            margin-top: -2px !important;
+            position: relative !important;
+            font-size: 2.5em !important;
+            color: white !important;
+            opacity: 1 !important;
+        }
+
+        .size-hall{
+            font-size: 13px;
+        }
+
+        .arm{
+            font-size: 1em !important;
+        }
+
+        .btn{
+            color: white !important;
+        }
+
+        .modal-dialog{
+            color: white !important;
+            margin-top: 1em !important;
+            margin-left: 1em !important;
+        }
+
+        .btn-close{
+            margin-right: -1em !important;
+            margin-left: 1em !important;
+        }
+
+        .modal-footer{
+            padding: 0em;
+            padding-bottom: 0.5em;
+        }
+
+        span{
+            font-size: 1em !important;
+        }
+
+        .modal-footer{
+            padding: 19px 20px 20px;
+            display: flex;
+            text-align: center !important;
+            border-top: 1px solid #e5e5e5;
+            align-items: center;
+        }
+
+        
+    }
+
+</style>
+<html lang="pt-BR">
+    <body>
+        <meta http-equiv="refresh" content="90;url=http://127.0.0.1:3333/">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/index_controls.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/list-users.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/intellibox_pin.css' %}" />
+        <script src="{% static "js/jquery.js" %}"></script>
+        <script src="{% static "js/bootstrap.js" %}"></script>
+        <script src="{% static "js/arm_disarm_alarm.js" %}"></script>
+        <script src="{% static "js/functions.js" %}"></script>
+        <div class="confirm-msg">
+            <div class="panel panel-default panel-msg">
+                <div class="panel-heading text-center">ALERTA</div>
+                <div class="panel-body text-center clearfix">
+                    <div class="col-md-12">
+                        <strong class="confirm-text" ></strong>
+                    </div>
+                    <div class="confirm-flex">
+                        <div class="btn-confirm-flex" style="display: flex;align-items: center;">
+                            <button class="btn btn-danger btn-block confirm-btn-cancel">CANCELAR</button>
+                        </div>
+                        <div class="btn-confirm-flex">
+                            <button class="btn btn-success btn-block confirm-btn-ok">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="alarmed_partitions" class="modal fade" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <input type="hidden" id="id_partition_modal_open" name="partition_modal_open" value="" />
+                    <div class="modal-header">
+                        <button type="button" class="btn-close close" data-dismiss="modal">&times;</button>
+                        <div class="modal-title text-center">Zonas Armadas <span id="title_modal_partition"></span></div>
+                    </div>
+                    <div id="modal_zones" class="modal-body body-popup" style="overflow: auto;height: 280px;">
+                    </div>
+                    <div class="modal-footer" style="margin-top: 0">
+                        <div>FAVOR ENTRAR EM CONTATO COM A CENTRAL</div>
+                        <button type="button" id="button_arm_modal" class="btn btn-danger">FECHAR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container content-box content-box-wait content-35">
+            <div class="content-alarm">
+                <button id="location_1" class="btn btn-alarm btn-success col-md-6 col-sm-6 {% if not '1' in locations or not 1 in partitions %}disable-btn{% endif %}">
+                    <h3 class="size-hall">AGÊNCIA <br>
+                        {% for p, status in partitions.items %}
+                            {% if p == 1 and status %}
+                                <span>(DESARMADO)</span>
+                            {% elif p == 1 and not status %}
+                                <span>(ARMADO)</span>
+                            {% endif %}
+                        {% endfor %}
+                    </h3>
+                </button>
+                <button id="location_2" class="disabled btn btn-alarm btn-danger col-md-6 col-sm-6 {% if not '2' in locations or not 2 in partitions %}disable-btn{% endif %}">
+                    <h3 class="size-hall">HALL<br>
+                    <!-- <br><h3 class="size-hall">ATENDIMENTO<h3><br> -->
+                        {% for p, status in partitions.items %}
+                            {% if p == 2 and status %}
+                                <span>(DESARMADO)</span>
+                            {% elif p == 2 and not status %}
+                                <span>(ARMADO)</span>
+                            {% endif %}
+                        {% endfor %}
+                    </h3>
+                </button>
+            </div>
+            <div class="content-alarm">
+                <button id="location_3" class="btn btn-alarm btn-warning col-md-6 col-sm-6 {% if not '3' in locations or not 3 in partitions %}disable-btn{% endif %}">
+                    <h3 class="size-hall">RETAGUARDA <br>
+                        {% for p, status in partitions.items %}
+                            {% if p == 3 and status %}
+                                <span>(DESARMADO)</span>
+                            {% elif p == 3 and not status %}
+                                <span>(ARMADO)</span>
+                            {% endif %}
+                        {% endfor %}
+                    </h3>
+                </button>
+                <button id="location_4" class="btn btn-alarm btn-info col-md-6 col-sm-6 {% if not '4' in locations or not 4 in partitions %}disable-btn{% endif %}">
+                    <h3 class="size-hall">TESOURARIA <br>
+                        {% for p, status in partitions.items %}
+                            {% if p == 4 and status %}
+                                <span>(DESARMADO)</span>
+                            {% elif p == 4 and not status %}
+                                <span>(ARMADO)</span>
+                            {% endif %}
+                        {% endfor %}
+                    </h3>
+                </button>
+            </div>
+        </div>
+        {% comment %}
+        <button id="all_location" class="col-md-2 col-sm-2 {% if not locations|length == 4 or not partitions|length == 4 %}disable-btn{% endif %}">
+            <h3>TODOS</h3>
+        </button>
+        {% endcomment %}
+        <button id="back" class="col-md-1 col-sm-1">
+            <span class="arrow-left"></span>
+        </button>
+    </body>
+</html>
+<script type="text/javascript">
+    $('.logo_atk').attr('src','/static/imagens/SmartAlarm.png')
+</script>
+{% endblock %}

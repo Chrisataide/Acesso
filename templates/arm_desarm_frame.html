@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <body>
+        <meta http-equiv="refresh" content="90;url=http://127.0.0.1:3333/">
+        <link rel="stylesheet" type="text/css" href="{% static 'controls/css/style.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'controls/css/bootstrap.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'controls/css/animate.css' %}" />
+        <script src="{% static "js/jquery.js" %}"></script>
+        <script src="{% static "js/bootstrap.js" %}"></script>
+        <script src="{% static "js/arm_disarm_alarm.js" %}"></script>
+        <script src="{% static "js/functions.js" %}"></script>
+        <div class="confirm-msg">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">ALERTA</div>
+                <div class="panel-body text-center clearfix">
+                    <div class="col-md-12">
+                        <strong class="confirm-text" ></strong>
+                    </div>
+                    <div class="confirm-flex">
+                        <div class="btn-confirm-flex">
+                            <button class="btn btn-danger btn-block confirm-btn-cancel">CANCELAR</button>
+                        </div>
+                        <div class="btn-confirm-flex">
+                            <button class="btn btn-success btn-block confirm-btn-ok">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+        <button id="location_1" class="btn btn-success col-md-6 col-sm-6 {% if not '1' in locations or not 1 in partitions %}disable-btn{% endif %}">
+            <h3>AGÊNCIA <br>
+                {% for p, status in partitions.items %}
+                    {% if p == 1 and status %}
+                        <span>(DESARMADO)</span>
+                    {% elif p == 1 and not status %}
+                        <span>(ARMADO)</span>
+                    {% endif %}
+                {% endfor %}
+            </h3>
+        </button>
+        <button id="location_2" class="btn btn-danger col-md-6 col-sm-6 {% if not '2' in locations or not 2 in partitions %}disable-btn{% endif %}">
+            <h3>HALL-AUTO-ATENDIMENTO <br>
+                {% for p, status in partitions.items %}
+                    {% if p == 2 and status %}
+                        <span>(DESARMADO)</span>
+                    {% elif p == 2 and not status %}
+                        <span>(ARMADO)</span>
+                    {% endif %}
+                {% endfor %}
+            </h3>
+        </button>
+        </div>
+        <div>
+        <button id="location_3" class="btn btn-warning col-md-6 col-sm-6 {% if not '3' in locations or not 3 in partitions %}disable-btn{% endif %}">
+            <h3>RETAGUARDA <br>
+                {% for p, status in partitions.items %}
+                    {% if p == 3 and status %}
+                        <span>(DESARMADO)</span>
+                    {% elif p == 3 and not status %}
+                        <span>(ARMADO)</span>
+                    {% endif %}
+                {% endfor %}
+            </h3>
+        </button>
+        <button id="location_4" class="btn btn-info col-md-6 col-sm-6 {% if not '4' in locations or not 4 in partitions %}disable-btn{% endif %}">
+            <h3>TESOURARIA <br>
+                {% for p, status in partitions.items %}
+                    {% if p == 4 and status %}
+                        <span>(DESARMADO)</span>
+                    {% elif p == 4 and not status %}
+                        <span>(ARMADO)</span>
+                    {% endif %}
+                {% endfor %}
+            </h3>
+        </button>
+        </div>
+        {% comment %}
+        <button id="all_location" class="col-md-2 col-sm-2 {% if not locations|length == 4 or not partitions|length == 4 %}disable-btn{% endif %}">
+            <h3>TODOS</h3>
+        </button>
+        {% endcomment %}
+<!--         <button id="back" class="col-md-1 col-sm-1">
+            <span class="arrow-left"></span>
+        </button> -->
+    </body>
+</html>

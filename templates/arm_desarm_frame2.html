@@ -1,0 +1,223 @@
+{% extends 'master.html' %}
+{% load static %}
+<!DOCTYPE html>
+<body class="bg">
+{% block teste %}
+<!--     <div class="col-md-12 container-" style="position: relative;padding: 0.6em;padding-bottom: 5px;">
+        <div class="col-md-12 content-smartbox-access">
+            {% block teste2 %}
+                {% if type_system == "SmartAccess" %}
+                    <div style="color: white">
+                        <p class="name-display">SMART ACCESS</p> 
+                    </div>
+                    <div style="display: flex;margin-top: -2px;justify-content: start;">
+                        <div>
+                            <img src="/static/imagens/signal.png" style="margin-top: -2px;margin-right: -1em;">
+                        </div>
+                        <div>
+                            <img src="/static/imagens/ac.png">
+                        </div>
+                    </div>
+                {% else %}
+                    <div style="color: white">
+                        <p class="name-display">SMART INTELLIBOX</p> 
+                    </div>
+                    <div style="display: flex;margin-top: -2px;justify-content: start;">
+                        <div>
+                            <img src="/static/imagens/signal.png" style="margin-top: -2px;margin-right: -1em;">
+                        </div>
+                        <div>
+                            <img src="/static/imagens/ac.png">
+                        </div>
+                    </div>
+                {% endif %}
+            {% endblock %}
+        </div>
+    </div> -->
+{% endblock %}
+{% block content_master %}
+<html lang="pt-BR">
+    <style type="text/css">
+        #location_1 {
+            position: relative;
+            z-index: 1;
+            /*margin: 7em 0em 0em 2.4em;*/
+            display: block;
+        }
+        #location_1 {
+            position: relative;
+            z-index: 1;
+            text-align: center !important;
+            display: block;
+        }
+
+        .display-access-alarm {
+            /* width: 25em; */
+            width: 21.4em;
+            align-items: center;
+            justify-content: center;
+            display: flow-root !important;
+            height: 23em;
+            border: 3px solid rgb(159, 255, 255);
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 0px 0px 28px 6px #124b73;
+        }
+
+        .content-box{
+            width: 310px !important;
+            padding-top: 0;
+            height: 423px;
+            align-items: center;
+            display: flex;
+            box-shadow: 0px 0px 28px 3px #124b73;
+            border: 2px solid #a3feff;
+            border-radius: 1em;
+            z-index: 100;
+            position: absolute;
+            margin-top: 0em;
+        }
+
+        .back-home-alarm {
+            margin-left: -0.6em !important;
+            width: 22.4em;
+            height: 3.5em;
+            display: flex;
+            border: 3px solid rgb(159, 255, 255);
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px 10px 10px 10px;
+            box-shadow: 0px 0px 28px 6px #124b73;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0.4em;
+        }
+
+        .iframealarm{
+            z-index: 100;
+            position: fixed; !important;
+            top: 0px !important;
+            left: 0px !important;
+            bottom: 0px !important;
+            background: red;
+        }
+        
+    </style>
+    <body>
+        <!--<meta http-equiv="refresh" content="90;url=http://127.0.0.1:3333/">-->
+        <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" /> -->
+        <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" /> -->
+        <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}" /> -->
+        <link rel="stylesheet" type="text/css" href="/static/css/intellibox_pin.css">
+        <!-- <script src="{% static "js/jquery.js" %}"></script> -->
+        <!-- <script src="{% static "js/bootstrap.js" %}"></script> -->
+        <script src="{% static "js/arm_disarm_alarm.js" %}"></script>
+        <script src="{% static "js/functions.js" %}"></script>
+        <div class="confirm-msg">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">ALERTA</div>
+                <div class="panel-body text-center clearfix">
+                    <div class="col-md-12">
+                        <strong class="confirm-text" ></strong>
+                    </div>
+                    <div class="confirm-flex">
+            <div class="btn-confirm-flex">
+                            <button class="btn btn-success btn-block confirm-btn-ok">OK</button>
+                        </div>
+                        <div class="btn-confirm-flex">
+                            <button class="btn btn-danger btn-block confirm-btn-cancel">CANCELAR</button>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--         <div class="partitions {% if not '1' in locations or not 1 in partitions %}hide{% endif %}">
+            <strong id="location_1">AGÊNCIA</strong>
+            {% for p, status in partitions.items %}
+                {% if p == 1 and status %}
+                    <span id="span_location_1">(DESARMADO)</span>
+                {% elif p == 1 and not status %}
+                    <span id="span_location_1">(ARMADO)</span>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="partitions {% if not '2' in locations or not 2 in partitions %}hide{% endif %}">
+            <strong id="location_2">HALL</strong>
+            {% for p, status in partitions.items %}
+                {% if p == 2 and status %}
+                    <span id="span_location_2">(DESARMADO)</span>
+                {% elif p == 2 and not status %}
+                    <span id="span_location_2">(ARMADO)</span>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="partitions {% if not '3' in locations or not 3 in partitions %}hide{% endif %}">
+            <strong id="location_3">RETAGUARDA</strong>
+            {% for p, status in partitions.items %}
+                {% if p == 3 and status %}
+                    <span id="span_location_3">(DESARMADO)</span>
+                {% elif p == 3 and not status %}
+                    <span id="span_location_3">(ARMADO)</span>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="partitions {% if not '4' in locations or not 4 in partitions %}hide{% endif %}">
+            <strong id="location_4">TESOURARIA</strong>
+            {% for p, status in partitions.items %}
+                {% if p == 4 and status %}
+                    <span id="span_location_4">(DESARMADO)</span>
+                {% elif p == 4 and not status %}
+                    <span id="span_location_4">(ARMADO)</span>
+                {% endif %}
+            {% endfor %}
+        </div> -->
+<!--      <div class="container-box" style="margin-left: 0.4em;">
+            <div class="container content-box">
+            <div style="z-index: 1"> -->
+        <div class="container-access" style="position: relative;">
+            <div class="input-password-gn">
+                <div id="div_panel" class="col-md-12 col-sm-12 text-password">
+                    <p id="panel_message">
+                        <div id="msg_gn">
+                            <!-- msg-gn por JS -->
+                        </div>
+                    </p>
+                </div>
+            </div>
+<!--             <div class="display-access-alarm">
+                <div>
+                    <div>
+                        <div class="partitions {% if not '1' in locations or not 1 in partitions %}hide{% endif %}">
+                            <strong id="location_1">AGÊNCIA</strong>
+                            {% for p, status in partitions.items %}
+                                {% if p == 1 and status %}
+                                    <span id="span_location_1">(DESARMADO)</span>
+                                {% elif p == 1 and not status %}
+                                    <span id="span_location_1">(ARMADO)</span>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="display-access-alarm">
+
+                        </div>
+            <div class="back-home-alarm">
+            <a>
+                <img src="/static/imagens/home.png" style="position: absolute;width: 2em;margin-top: -1em;cursor: pointer;z-index: 999;margin-left: -0.5em;">
+            </a>
+
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        $('.back-home-alarm').click(function(event) {
+            $('.home-index').removeClass('hide')
+            $('.arm_desarm_frame').addClass('hide')
+        });
+    </script>
+{% endblock %}
+</html>

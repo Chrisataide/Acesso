@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<body>
+
+	<img src="/static/imagens/access_pin.jpg" alt="Planets" usemap="#planetmap">
+	<map name="planetmap">
+		<img src="/static/imagens/ac.png" style="position: absolute;float: left;margin-left: -2.7em;width: 2.5em;">
+		<img src="/static/imagens/signal.png" style="position: absolute;float: left;margin-left: -4.7em;width: 2em;">
+		<area shape="react" coords="20,73,75,115" id="number_1">
+		<area shape="react" coords="147,73,93,115" id="number_2">
+		<area shape="react" coords="220,73,165,115" id="number_3">
+		<area shape="react" coords="20,125,75,167" id="number_4">
+		<area shape="react" coords="93,125,147,167" id="number_5">
+		<area shape="react" coords="165,125,220,167" id="number_6">
+		<area shape="react" coords="20,220,75,175" id="number_7">
+		<area shape="react" coords="93,220,147,177" id="number_8">
+		<area shape="react" coords="165,220,220,177" id="number_9">
+		<area shape="react" coords="20,270,75,227" id="backspace">
+		<area shape="react" coords="91,270,148,227" id="number_0">
+		<area shape="react" coords="165,270,220,227" id="enter" href="{% url 'access-access_face' %}">
+		
+		<a href="{% url 'index' %}">
+			<img src="/static/imagens/backward.png" style="position: absolute;margin-left: -13.7em;width: 1.5em;margin-top: 21.71%;cursor: pointer;">
+		</a>
+		
+		<a href="{% url 'index' %}">
+			<img src="/static/imagens/home.png" style="position: absolute;margin-left: -8em;width: 1.5em;margin-top: 21.71%;cursor: pointer;">
+		</a>
+		<!-- <img src="/static/imagens/forward.png" style="position: absolute;margin-left: -2.7em;width: 1.5em;margin-top: 21.71%;cursor: pointer;"> -->
+	</map>
+
+	</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<img src="/static/imagens/access_face.jpg" alt="Planets" usemap="#planetmap">
+		<img src="/static/imagens/ac.png" style="position: absolute;float: left;margin-left: -2.7em;width: 2.5em;">
+		<img src="/static/imagens/signal.png" style="position: absolute;float: left;margin-left: -4.7em;width: 2em;">
+
+		<a href="{% url 'access-access_pin' %}" >
+			<img src="/static/imagens/backward.png" style="position: absolute;margin-left: -13.7em;width: 1.5em;margin-top: 21.71%;cursor: pointer;">
+		</a>
+		
+		<a href="{% url 'index' %}">
+			<img src="/static/imagens/home.png" style="position: absolute;margin-left: -8em;width: 1.5em;margin-top: 21.71%;cursor: pointer;">
+		</a>
+		
+	</body>
+</html>
